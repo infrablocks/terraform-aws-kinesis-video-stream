@@ -1,26 +1,34 @@
-variable component {
-}
-variable deployment_identifier {
-}
-variable stream_name {
-  default = "A name to identify the stream. "
+variable "region" {
+  description = "The region into which to deploy the VPC."
+  type = string
 }
 
-variable retention {
+variable "component" {
+  type = string
+  description = "The name of the component for which this stream is being created."
+}
+variable "deployment_identifier" {
+  description = "An identifier for this instantiation."
+  type = string
+}
+
+variable "stream_name" {
+  description = "A name to identify the stream. "
+  type = string
+}
+
+variable "retention" {
+  description = "The number of hours that for which to retain the data in the stream"
   default = 10
   type = number
-  description = "The number of hours that you want to retain the data in the stream"
 }
-variable media_type {
+variable "media_type" {
   description = "The media type of the stream."
   default = "video/h264"
 }
-variable region {
-  default = "eu-west-2"
-}
 
-variable tags {
-  type = map(string)
+variable "tags" {
   description = "Additional resource tags"
+  type = map(string)
   default = {}
 }

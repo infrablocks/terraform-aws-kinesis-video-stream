@@ -7,5 +7,4 @@ resource "aws_kinesis_video_stream" "stream" {
   tags = merge(local.tags, {
     Name        = "${var.component}-${var.deployment_identifier}-${var.stream_name}"
   })
-
 }

@@ -6,12 +6,11 @@ output "stream_id" {
   value = aws_kinesis_video_stream.stream.id
 }
 
-
 output "stream_arn" {
   value = aws_kinesis_video_stream.stream.arn
 }
 
-output "creation_time" {
+output "stream_creation_time" {
   value = aws_kinesis_video_stream.stream.creation_time
 }
 
