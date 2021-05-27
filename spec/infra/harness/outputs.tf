@@ -10,6 +10,10 @@ output "stream_arn" {
   value = module.stream.stream_arn
 }
 
+output "stream_name" {
+  value = module.stream.stream_name
+}
+
 output "stream_creation_time" {
   value = module.stream.stream_creation_time
 }
