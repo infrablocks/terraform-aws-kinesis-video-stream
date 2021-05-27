@@ -6,3 +6,5 @@ vars:
 
   component: "%{hiera('component')}"
   deployment_identifier: "%{hiera('deployment_identifier')}"
+
+  stream_name: "%{hiera('component')}-%{hiera('deployment_identifier')}"
