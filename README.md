@@ -1,16 +1,15 @@
-terraform kinesis video stream
-=========================
+Terraform Kinesis Video Stream
+==============================
 
 [![circleci](https://circleci.com/gh/infrablocks/terraform-aws-kinesis-video-stream.svg?style=svg)](https://circleci.com/gh/infrablocks/terraform-aws-kinesis-video-stream)
 
-Terraform module to create a Kinesis video stream
+A Terraform module to create a Kinesis video stream.
 
 
-##usage
-
+Usage
 -----
 
-to use the module, include something like the following in your terraform 
+To use the module, include something like the following in your terraform 
 configuration:
 
 ```hcl-terraform
@@ -23,8 +22,11 @@ module "kinesis_video_stream" {
  }
 ```
 
+See the 
+[Terraform registry entry](https://registry.terraform.io/modules/infrablocks/kinesis-video-stream/aws/latest) 
+for more details.
 
-### inputs
+### Inputs
 
 | name                                       | description                                                                                                      | default            | required                                 |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------|:------------------:|:----------------------------------------:|
@@ -34,7 +36,7 @@ module "kinesis_video_stream" {
 |media_type|
 |tags|
 
-### outputs
+### Outputs
 
 | name                      | description                                                                      |
 |---------------------------|----------------------------------------------------------------------------------|
@@ -43,35 +45,37 @@ module "kinesis_video_stream" {
 | cluster_arn               | the arn of the created msk cluster                                               |
 |security_group_id|
 
+### Compatibility
 
+This module is compatible with Terraform versions greater than or equal to 
+Terraform 0.14.
 
-
-development
+Development
 -----------
 
-### machine requirements
+### Machine Requirements
 
-in order for the build to run correctly, a few tools will need to be installed 
+In order for the build to run correctly, a few tools will need to be installed 
 on your development machine:
 
-* ruby (2.3.1)
-* bundler
+* Ruby (2.3.1)
+* Bundler
 * git
 * git-crypt
 * gnupg
 * direnv
 
-#### mac os x setup
+#### Mac OS X Setup
 
-installing the required tools is best managed by [homebrew](http://brew.sh).
+Installing the required tools is best managed by [homebrew](http://brew.sh).
 
-to install homebrew:
+To install homebrew:
 
 ```
-ruby -e "$(curl -fssl https://raw.githubusercontent.com/homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-then, to install the required tools:
+Then, to install the required tools:
 
 ```
 # ruby
@@ -94,33 +98,33 @@ brew install gnupg
 brew install direnv
 echo "$(direnv hook bash)" >> ~/.bash_profile
 echo "$(direnv hook zsh)" >> ~/.zshrc
-eval "$(direnv hook $shell)"
+eval "$(direnv hook $SHELL)"
 
 direnv allow <repository-directory>
 ```
 
-### running the build
+### Running the build
 
-to provision module infrastructure, run tests and then destroy that 
+To provision module infrastructure, run tests and then destroy that 
 infrastructure, execute:
 
 ```bash
 ./go
 ```
 
-to provision the module prerequisites:
+To provision the module prerequisites:
 
 ```bash
 ./go deployment:prerequisites:provision[<deployment_identifier>]
 ```
 
-to provision the module contents:
+To provision the module contents:
 
 ```bash
 ./go deployment:harness:provision[<deployment_identifier>]
 ```
 
-to destroy the module contents:
+To destroy the module contents:
 
 ```bash
 ./go deployment:harness:destroy[<deployment_identifier>]
@@ -133,19 +137,19 @@ to destroy the module prerequisites:
 ```
 
 
-### common tasks
+### Common Tasks
 
-#### generating an ssh key pair
+#### Generating an SSH key pair
 
-to generate an ssh key pair:
+To generate an ssh key pair:
 
 ```
 ssh-keygen -t rsa -b 4096 -c integration-test@example.com -n '' -f config/secrets/keys/bastion/ssh
 ```
 
-#### managing circleci keys
+#### Managing CircleCI keys
 
-to encrypt a gpg key for use by circleci:
+To encrypt a GPG key for use by CircleCI:
 
 ```bash
 openssl aes-256-cbc \
@@ -156,7 +160,7 @@ openssl aes-256-cbc \
   -k "<passphrase>"
 ```
 
-to check decryption is working correctly:
+To check decryption is working correctly:
 
 ```bash
 openssl aes-256-cbc \
@@ -166,18 +170,18 @@ openssl aes-256-cbc \
   -k "<passphrase>"
 ```
 
-contributing
+Contributing
 ------------
 
-bug reports and pull requests are welcome on github at 
-https://github.com/tobyclemson/terraform-aws-kinesis-video-stream. this project is 
-intended to be a safe, welcoming space for collaboration, and contributors are 
-expected to adhere to the 
-[contributor covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at 
+https://github.com/infrablocks/terraform-aws-kinesis-video-stream. This project 
+is intended to be a safe, welcoming space for collaboration, and contributors 
+are expected to adhere to the 
+[Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
-license
+License
 -------
 
-the library is available as open source under the terms of the 
-[mit license](http://opensource.org/licenses/mit).
+The library is available as open source under the terms of the 
+[MIT License](http://opensource.org/licenses/MIT).
