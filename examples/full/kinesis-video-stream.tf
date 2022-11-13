@@ -1,6 +1,5 @@
 module "stream" {
-  # This makes absolutely no sense. I think there's a bug in terraform.
-  source = "./../../../../../../../"
+  source = "../../"
 
   region = var.region
 
@@ -8,4 +7,11 @@ module "stream" {
   deployment_identifier = var.deployment_identifier
 
   stream_name = var.stream_name
+
+  retention = 15
+  media_type = "video/mp4"
+
+  tags = {
+    Example: "full"
+  }
 }

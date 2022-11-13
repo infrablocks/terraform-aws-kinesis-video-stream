@@ -13,7 +13,7 @@ variable "deployment_identifier" {
 }
 
 variable "stream_name" {
-  description = "A name to identify the stream. "
+  description = "A name to identify the stream."
   type = string
 }
 
